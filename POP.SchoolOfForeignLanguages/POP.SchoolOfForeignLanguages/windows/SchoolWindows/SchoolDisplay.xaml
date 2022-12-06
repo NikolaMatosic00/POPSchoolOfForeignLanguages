@@ -1,0 +1,27 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.SchoolWindows.SchoolDisplay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.SchoolWindows"
+        mc:Ignorable="d"
+        Title="SchoolDisplay" Height="450" Width="800">
+    <Grid>
+        <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
+            <MenuItem Name="MIAdrese" Header="Schools">
+                <MenuItem Name="MIDodajAdresu" Header="Add School" Click="MIDodajAdresu_Click"/>
+                <MenuItem Name="MIIzmeniAdresu" Header="Edit School" Click="MIIzmeniAdresu_Click" />
+                <MenuItem Name="MIObrisiAdresu" Header="Delete School" Click="MIObrisiAdresu_Click" />
+
+            </MenuItem>
+        </Menu>
+        <DataGrid CanUserAddRows="False" Name="DGSchools" HorizontalAlignment="Left" 
+                  Height="371" Margin="10,40,0,0" VerticalAlignment="Top" Width="612"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DGSchools_AutoGeneratingColumn"
+                  IsReadOnly="True"
+                  />
+        <TextBox Name="TxtPretraga" HorizontalAlignment="Left" Height="23" Margin="656,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="TxtPretraga_KeyUp"/>
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

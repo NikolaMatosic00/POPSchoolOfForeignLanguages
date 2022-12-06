@@ -1,4 +1,7 @@
-﻿using System;
+﻿using POP.SchoolOfForeignLanguages.models;
+using POP.SchoolOfForeignLanguages.windows.AddressWindows;
+using POP.SchoolOfForeignLanguages.windows.SchoolWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,19 @@ namespace POP.SchoolOfForeignLanguages
         public MainWindow()
         {
             InitializeComponent();
+            Util.Instance.Initialize();
+        }
+
+        private void AddressesButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddressDisplay addressesDisplayWindow = new();
+            addressesDisplayWindow.Show();
+        }
+
+        private void SchoolsButton_Click(Object sender, RoutedEventArgs e)
+        {
+            SchoolDisplay schoolsDisplayWindow = new();
+            schoolsDisplayWindow.Show();
         }
     }
 }
