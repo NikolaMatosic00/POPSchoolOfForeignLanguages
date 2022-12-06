@@ -1,6 +1,8 @@
 ﻿using POP.SchoolOfForeignLanguages.models.enums;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,7 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public Professor Professor { get; set; }
 
-        public string Date{ get; set; }
+        public string Date { get; set; }
 
         public string StartTime { get; set; }
 
@@ -25,5 +27,9 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public bool Active { get; set; }
 
+        public string FormatTxtFileLine()
+        {
+            return ID.ToString() + ";" + Professor.ID.ToString() + ";" + Date + ";" + StartTime + ";" + Duration + ";" + Status + ";" + Student.ID.ToString() + ";" + Active.ToString();
+        }
     }
 }

@@ -12,13 +12,13 @@ namespace POP.SchoolOfForeignLanguages.services
 {
     class AddressService
     {
-        public void saveAddresses()
+        public void SaveAddresses()
         {
             using (StreamWriter file = new StreamWriter(@"../../../resources/addresses.txt"))
             {
                 foreach (Address address in Util.Instance.Addresses)
                 {
-                    file.WriteLine(address.formatTxtFileLine());
+                    file.WriteLine(address.FormatTxtFileLine());
                 }
             }
         }

@@ -11,13 +11,13 @@ namespace POP.SchoolOfForeignLanguages.services
 {
     class SchoolService
     {
-        public void saveSchools()
+        public void SaveSchools()
         {
             using (StreamWriter file = new StreamWriter(@"../../../resources/schools.txt"))
             {
                 foreach (School school in Util.Instance.Schools)
                 {
-                    file.WriteLine(school.formatTxtFileLine());
+                    file.WriteLine(school.FormatTxtFileLine());
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace POP.SchoolOfForeignLanguages.services
                     Active = bool.Parse(lajs[4])
                 });
 
-                Console.WriteLine(Util.Instance.Schools.FirstOrDefault().formatTxtFileLine());
+
 
             }
             file.Close();

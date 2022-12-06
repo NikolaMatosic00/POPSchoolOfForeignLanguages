@@ -20,5 +20,14 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public bool Active { get; set; }
 
+        public string FormatTxtFileLine()
+        {
+            string languages = "";
+            foreach (string language in Languages)
+            {
+                languages += language + ",";
+            }
+            return ID.ToString() + ";" + User.ID.ToString() + ";" + School.ID.ToString() + ";" + languages.Substring(0, languages.Length - 1) + ";" + Active.ToString();
+        }
     }
 }

@@ -15,13 +15,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
+namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
 {
-
-    public partial class SchoolDisplay : Window
+    public partial class StudentDisplay : Window
     {
         ICollectionView view;
-        public SchoolDisplay()
+        public StudentDisplay()
         {
             InitializeComponent();
             UpdateView();
@@ -29,42 +28,29 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
 
         private void UpdateView()
         {
-            ObservableCollection<School> activeEntities = new ObservableCollection<School>();
-            foreach (School school in Util.Instance.Schools)
+            ObservableCollection<Student> activeEntities = new ObservableCollection<Student>();
+            foreach (Student student in Util.Instance.Students)
             {
-                if (school.Active == true)
+                if (student.Active == true)
                 {
-                    activeEntities.Add(school);
+                    activeEntities.Add(student);
                 }
             }
             view = CollectionViewSource.GetDefaultView(activeEntities);
-            DGSchools.ItemsSource = view;
-            DGSchools.IsSynchronizedWithCurrentItem = true;
-            DGSchools.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGStudents.ItemsSource = view;
+            DGStudents.IsSynchronizedWithCurrentItem = true;
+            DGStudents.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
-        private void DGSchools_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void DGStudents_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName.Equals("Aktivan"))
                 e.Column.Visibility = Visibility.Collapsed;
         }
 
-
-        private void MIAddSchool_Click(object sender, RoutedEventArgs e)
+        private void MIRemoveStudent_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-
-        private void MIEditSchool_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        private void MIRemoveSchool_Click(object sender, RoutedEventArgs e)
-        {
-            School selected = view.CurrentItem as School;
+            Student selected = view.CurrentItem as Student;
             Util.Instance.RemoveEntity(selected);
 
             UpdateView();

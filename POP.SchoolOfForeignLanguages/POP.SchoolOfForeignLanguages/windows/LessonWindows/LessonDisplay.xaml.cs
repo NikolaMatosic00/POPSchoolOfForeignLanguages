@@ -15,56 +15,41 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
+namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
 {
-
-    public partial class SchoolDisplay : Window
+    public partial class LessonDisplay : Window
     {
         ICollectionView view;
-        public SchoolDisplay()
+        public LessonDisplay()
         {
             InitializeComponent();
             UpdateView();
         }
-
         private void UpdateView()
         {
-            ObservableCollection<School> activeEntities = new ObservableCollection<School>();
-            foreach (School school in Util.Instance.Schools)
+            ObservableCollection<Lesson> activeEntities = new ObservableCollection<Lesson>();
+            foreach (Lesson lesson in Util.Instance.Lessons)
             {
-                if (school.Active == true)
+                if (lesson.Active == true)
                 {
-                    activeEntities.Add(school);
+                    activeEntities.Add(lesson);
                 }
             }
             view = CollectionViewSource.GetDefaultView(activeEntities);
-            DGSchools.ItemsSource = view;
-            DGSchools.IsSynchronizedWithCurrentItem = true;
-            DGSchools.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGLessons.ItemsSource = view;
+            DGLessons.IsSynchronizedWithCurrentItem = true;
+            DGLessons.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
 
-        private void DGSchools_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        private void DGLessons_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             if (e.PropertyName.Equals("Aktivan"))
                 e.Column.Visibility = Visibility.Collapsed;
         }
 
-
-        private void MIAddSchool_Click(object sender, RoutedEventArgs e)
+        private void MIRemoveLesson_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-
-        private void MIEditSchool_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        private void MIRemoveSchool_Click(object sender, RoutedEventArgs e)
-        {
-            School selected = view.CurrentItem as School;
+            Lesson selected = view.CurrentItem as Lesson;
             Util.Instance.RemoveEntity(selected);
 
             UpdateView();
@@ -73,4 +58,3 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
         }
     }
 }
-

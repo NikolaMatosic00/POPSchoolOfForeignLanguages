@@ -1,24 +1,24 @@
-﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.SchoolWindows.SchoolDisplay"
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.StudentWindows.StudentDisplay"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.SchoolWindows"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.StudentWindows"
         mc:Ignorable="d"
-        Title="SchoolDisplay" Height="450" Width="800">
-    <Grid>
+        Title="StudentDisplay" Height="450" Width="800">
+    <Grid Margin="-1,0,15,13">
         <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
-            <MenuItem Name="MISchools" Header="Schools">
-                <MenuItem Name="MIAddSchool" Header="Add School" Click="MIAddSchool_Click"/>
-                <MenuItem Name="MIEditSchool" Header="Edit School" Click="MIEditSchool_Click" />
-                <MenuItem Name="MIRemoveSchool" Header="Remove School" Click="MIRemoveSchool_Click" />
+            <MenuItem Name="MIStudents" Header="Students">
+                <MenuItem Name="MIAddStudent" Header="Add Student"/>
+                <MenuItem Name="MIEditStudent" Header="Edit Student"/>
+                <MenuItem Name="MIRemoveStudent" Header="Remove Student" Click="MIRemoveStudent_Click"/>
 
             </MenuItem>
         </Menu>
-        <DataGrid CanUserAddRows="False" Name="DGSchools" HorizontalAlignment="Left" 
+        <DataGrid CanUserAddRows="False" Name="DGStudents" HorizontalAlignment="Left" 
                   Height="371" Margin="10,40,0,0" VerticalAlignment="Top" Width="612"
                   AutoGenerateColumns="True"
-                  AutoGeneratingColumn="DGSchools_AutoGeneratingColumn"
+                  AutoGeneratingColumn="DGStudents_AutoGeneratingColumn"
                   IsReadOnly="True"
                   />
         <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>

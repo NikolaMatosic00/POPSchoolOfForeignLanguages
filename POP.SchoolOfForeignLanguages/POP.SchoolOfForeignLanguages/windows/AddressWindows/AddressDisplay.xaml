@@ -9,19 +9,18 @@
     <Grid Margin="-1,0,15,13">
         <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
             <MenuItem Name="MIAdrese" Header="Adrese">
-                <MenuItem Name="MIDodajAdresu" Header="Dodaj adresu" Click="MIDodajAdresu_Click"/>
-                <MenuItem Name="MIIzmeniAdresu" Header="Izmeni adresu" Click="MIIzmeniAdresu_Click" />
-                <MenuItem Name="MIObrisiAdresu" Header="Obrisi adresu" Click="MIObrisiAdresu_Click" />
+                <MenuItem Name="MIAddAddress" Header="Add Address" Click="MIAddAddress_Click"/>
+                <MenuItem Name="MIEditAddress" Header="Edit Address" Click="MIEditAddress_Click" />
+                <MenuItem Name="MIRemoveAddress" Header="Remove Address" Click="MIRemoveAddress_Click" />
 
             </MenuItem>
         </Menu>
-        <DataGrid CanUserAddRows="False" Name="DGAdrese" HorizontalAlignment="Left" 
+        <DataGrid CanUserAddRows="False" Name="DGAddresses" HorizontalAlignment="Left" 
                   Height="371" Margin="10,40,0,0" VerticalAlignment="Top" Width="612"
                   AutoGenerateColumns="True"
-                  AutoGeneratingColumn="DGAdrese_AutoGeneratingColumn"
+                  AutoGeneratingColumn="DGAddresses_AutoGeneratingColumn"
                   IsReadOnly="True"
                   />
-        <TextBox Name="TxtPretraga" HorizontalAlignment="Left" Height="23" Margin="656,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="TxtPretraga_KeyUp"/>
         <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>

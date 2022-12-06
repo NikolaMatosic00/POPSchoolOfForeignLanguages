@@ -21,7 +21,7 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public bool Active { get; set; }
 
-        public string formatTxtFileLine()
+        public string FormatTxtFileLine()
         {
             return ID.ToString() + ";" + Street + ";" + StreetNumber.ToString() + ";" + City + ";" + Country + ";" + Active.ToString();
         }

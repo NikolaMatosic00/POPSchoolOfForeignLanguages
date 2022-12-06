@@ -20,7 +20,7 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public bool Active { get; set; }
 
-        public string formatTxtFileLine()
+        public string FormatTxtFileLine()
         {
             string languages = "";
             foreach (string language in Languages)
