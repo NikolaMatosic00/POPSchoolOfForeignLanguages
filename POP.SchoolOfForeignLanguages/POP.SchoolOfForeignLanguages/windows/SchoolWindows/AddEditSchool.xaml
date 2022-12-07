@@ -1,0 +1,36 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.SchoolWindows.AddEditSchool"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.SchoolWindows"
+        mc:Ignorable="d"
+        Title="AddEditSchool" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition  />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="10" />
+            <RowDefinition MinHeight="10" />
+            <RowDefinition MinHeight="10" />
+            <RowDefinition MinHeight="10" />
+        </Grid.RowDefinitions>
+
+
+
+        <Label Grid.Column="0" Grid.Row="0" Name="LblName" Content="Name:"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtName"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Name="LblAddress" Content="Address:" />
+        <ComboBox Name="CmbAddress"  Grid.Column="1" Grid.Row="1" />
+
+        <Label Grid.Column="0" Grid.Row="2" Name="LblLanguages" Content="Languages:"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtLanguages"/>
+
+
+        <Button Grid.Column="0" Grid.Row="3" Content="Cancel" Name="BtnCancel"  Click="BtnCancel_Click"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Ok" Name="BtnOk" Click="BtnOk_Click"/>
+    </Grid>
+</Window>

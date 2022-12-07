@@ -23,6 +23,7 @@ namespace POP.SchoolOfForeignLanguages.windows.AddressWindows
     public partial class AddressDisplay : Window
     {
         ICollectionView view;
+
         public AddressDisplay()
         {
             InitializeComponent();
@@ -46,15 +47,14 @@ namespace POP.SchoolOfForeignLanguages.windows.AddressWindows
 
         private void DGAddresses_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName.Equals("Active"))
-                e.Column.Visibility = Visibility.Collapsed;
+
         }
 
 
         private void MIAddAddress_Click(object sender, RoutedEventArgs e)
         {
-            AddEditAddress azuriranjeProzor = new AddEditAddress(null);
-            azuriranjeProzor.Show();
+            AddEditAddress addWindow = new AddEditAddress(null);
+            addWindow.Show();
         }
 
 
@@ -64,8 +64,8 @@ namespace POP.SchoolOfForeignLanguages.windows.AddressWindows
 
             if (selected != null)
             {
-                AddEditAddress azuriranjeProzor = new AddEditAddress(selected);
-                azuriranjeProzor.Show();
+                AddEditAddress editWindow = new AddEditAddress(selected);
+                editWindow.Show();
             }
         }
 

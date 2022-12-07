@@ -1,1 +1,3 @@
-1;New Vision;2;Serbian,Russian,English;True
+1;New Vision;1;Serbian,Russian,English;True
+3;Skola stranih jezika Luna;5;Serbian, Russian, Mongolian, Prussian;True
+4;Neka nova sk;5;Russian, Italian;True

@@ -13,7 +13,7 @@ namespace POP.SchoolOfForeignLanguages.services
     {
         public void SaveStudents()
         {
-            using (StreamWriter file = new StreamWriter(@"../../../resources/studnets.txt"))
+            using (StreamWriter file = new StreamWriter(@"../../../resources/students.txt"))
             {
                 foreach (Student student in Util.Instance.Students)
                 {
@@ -40,6 +40,7 @@ namespace POP.SchoolOfForeignLanguages.services
                     Active = bool.Parse(lajs[2])
                 });
 
+                Console.WriteLine(line);
             }
             file.Close();
         }

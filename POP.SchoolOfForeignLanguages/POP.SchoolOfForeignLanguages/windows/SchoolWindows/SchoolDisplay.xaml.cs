@@ -1,9 +1,11 @@
 ﻿using POP.SchoolOfForeignLanguages.models;
+using POP.SchoolOfForeignLanguages.windows.AddressWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,6 +23,7 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
     public partial class SchoolDisplay : Window
     {
         ICollectionView view;
+        School _selected;
         public SchoolDisplay()
         {
             InitializeComponent();
@@ -40,10 +43,10 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
 
             var itemSource = activeEntities.Select(x => new
             {
-                Id = x.ID,
-                Namee = x.Name,
-                Address = x.Address.Street,
-                Language = string.Join(",", x.Languages.ToArray())
+                id = x.ID,
+                name = x.Name,
+                address = x.Address.Street,
+                language = string.Join(",", x.Languages.ToArray())
             }).ToList();
             DGSchools.ItemsSource = itemSource;
 
@@ -54,32 +57,43 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
 
         private void DGSchools_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName.Equals("Aktivan"))
-                e.Column.Visibility = Visibility.Collapsed;
+
         }
 
 
         private void MIAddSchool_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditSchool addWindow = new AddEditSchool(null);
+            addWindow.Show();
         }
 
 
         private void MIEditSchool_Click(object sender, RoutedEventArgs e)
         {
+            object item = DGSchools.SelectedItem;
+            PropertyInfo[] props = DGSchools.SelectedItem.GetType().GetProperties();
+            string schoolID = props[0].GetValue(item, null).ToString();
+            _selected = Util.Instance.Schools.FirstOrDefault(c => c.ID == int.Parse(schoolID));
+
+            AddEditSchool editWindow = new(_selected);
+            editWindow.Show();
 
         }
 
 
         private void MIRemoveSchool_Click(object sender, RoutedEventArgs e)
         {
-            object selected = view.CurrentItem;
-            Util.Instance.RemoveEntity(selected);
+            object item = DGSchools.SelectedItem;
+            PropertyInfo[] props = DGSchools.SelectedItem.GetType().GetProperties();
+            string schoolID = props[0].GetValue(item, null).ToString();
+            _selected = Util.Instance.Schools.FirstOrDefault(c => c.ID == int.Parse(schoolID));
+            Util.Instance.RemoveEntity(_selected);
 
             UpdateView();
             view.Refresh();
 
         }
+
     }
 }
 
