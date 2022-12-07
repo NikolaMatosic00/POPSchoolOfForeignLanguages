@@ -37,8 +37,17 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
                     activeEntities.Add(school);
                 }
             }
+
+            var itemSource = activeEntities.Select(x => new
+            {
+                Id = x.ID,
+                Namee = x.Name,
+                Address = x.Address.Street,
+                Language = string.Join(",", x.Languages.ToArray())
+            }).ToList();
+            DGSchools.ItemsSource = itemSource;
+
             view = CollectionViewSource.GetDefaultView(activeEntities);
-            DGSchools.ItemsSource = view;
             DGSchools.IsSynchronizedWithCurrentItem = true;
             DGSchools.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
@@ -64,7 +73,7 @@ namespace POP.SchoolOfForeignLanguages.windows.SchoolWindows
 
         private void MIRemoveSchool_Click(object sender, RoutedEventArgs e)
         {
-            School selected = view.CurrentItem as School;
+            object selected = view.CurrentItem;
             Util.Instance.RemoveEntity(selected);
 
             UpdateView();

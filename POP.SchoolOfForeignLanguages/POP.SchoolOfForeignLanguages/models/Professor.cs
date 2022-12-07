@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POP.SchoolOfForeignLanguages.models
 {
-    internal class Professor
+    public class Professor
     {
         public int ID { get; set; }
 

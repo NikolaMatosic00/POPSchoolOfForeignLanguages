@@ -5,10 +5,12 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -51,13 +53,20 @@ namespace POP.SchoolOfForeignLanguages.windows.AddressWindows
 
         private void MIAddAddress_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditAddress azuriranjeProzor = new AddEditAddress(null);
+            azuriranjeProzor.Show();
         }
 
 
         private void MIEditAddress_Click(object sender, RoutedEventArgs e)
         {
+            Address selected = view.CurrentItem as Address;
 
+            if (selected != null)
+            {
+                AddEditAddress azuriranjeProzor = new AddEditAddress(selected);
+                azuriranjeProzor.Show();
+            }
         }
 
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.StudentWindows"
         mc:Ignorable="d"
-        Title="StudentDisplay" Height="450" Width="800">
+        Title="StudentDisplay" Height="450" Width="900">
     <Grid Margin="-1,0,15,13">
         <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
             <MenuItem Name="MIStudents" Header="Students">
@@ -16,7 +16,7 @@
             </MenuItem>
         </Menu>
         <DataGrid CanUserAddRows="False" Name="DGStudents" HorizontalAlignment="Left" 
-                  Height="371" Margin="10,40,0,0" VerticalAlignment="Top" Width="612"
+                  Height="371" Margin="10,40,0,0" VerticalAlignment="Top" Width="872"
                   AutoGenerateColumns="True"
                   AutoGeneratingColumn="DGStudents_AutoGeneratingColumn"
                   IsReadOnly="True"

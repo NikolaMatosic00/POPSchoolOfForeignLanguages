@@ -36,8 +36,20 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                     activeEntities.Add(professor);
                 }
             }
+            var itemSource = activeEntities.Select(x => new
+            {
+                id = x.ID,
+                name = x.User.Name,
+                surname = x.User.Surname,
+                jmbg = x.User.JMBG,
+                sex = x.User.Sex,
+                address = x.User.Address.Street,
+                email = x.User.Email,
+                school = x.School.Name,
+                languages = string.Join(",", x.Languages.ToArray())
+            }).ToList();
+            DGProfessors.ItemsSource = itemSource;
             view = CollectionViewSource.GetDefaultView(activeEntities);
-            DGProfessors.ItemsSource = view;
             DGProfessors.IsSynchronizedWithCurrentItem = true;
             DGProfessors.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
@@ -50,7 +62,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
 
         private void MIRemoveProfessor_Click(object sender, RoutedEventArgs e)
         {
-            Professor selected = view.CurrentItem as Professor;
+            object selected = view.CurrentItem;
             Util.Instance.RemoveEntity(selected);
 
             UpdateView();

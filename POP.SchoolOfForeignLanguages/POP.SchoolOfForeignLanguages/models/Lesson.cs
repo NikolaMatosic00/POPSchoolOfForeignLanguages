@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace POP.SchoolOfForeignLanguages.models
 {
-    internal class Lesson
+    public class Lesson
     {
         public int ID { get; set; }
 

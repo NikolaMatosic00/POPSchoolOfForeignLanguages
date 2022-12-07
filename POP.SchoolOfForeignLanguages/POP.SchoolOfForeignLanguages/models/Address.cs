@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace POP.SchoolOfForeignLanguages.models
 {
-    internal class Address
+    public class Address
     {
         public int ID { get; set; }
 

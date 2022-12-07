@@ -36,8 +36,18 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                     activeEntities.Add(student);
                 }
             }
+            var itemSource = activeEntities.Select(x => new
+            {
+                id = x.ID,
+                name = x.User.Name,
+                surname = x.User.Surname,
+                jmbg = x.User.JMBG,
+                sex = x.User.Sex,
+                address = x.User.Address.Street,
+                emaill = x.User.Email
+            }).ToList();
+            DGStudents.ItemsSource = itemSource;
             view = CollectionViewSource.GetDefaultView(activeEntities);
-            DGStudents.ItemsSource = view;
             DGStudents.IsSynchronizedWithCurrentItem = true;
             DGStudents.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
         }
@@ -50,7 +60,7 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
 
         private void MIRemoveStudent_Click(object sender, RoutedEventArgs e)
         {
-            Student selected = view.CurrentItem as Student;
+            Object selected = view.CurrentItem;
             Util.Instance.RemoveEntity(selected);
 
             UpdateView();

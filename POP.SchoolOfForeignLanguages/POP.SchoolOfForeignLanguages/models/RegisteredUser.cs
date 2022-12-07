@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace POP.SchoolOfForeignLanguages.models
 {
-    internal class RegisteredUser
+    public class RegisteredUser
     {
         public int ID { get; set; }
 

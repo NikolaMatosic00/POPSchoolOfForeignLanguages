@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace POP.SchoolOfForeignLanguages.models
 {
-    internal class Student
+    public class Student
     {
         public int ID { get; set; }
 
