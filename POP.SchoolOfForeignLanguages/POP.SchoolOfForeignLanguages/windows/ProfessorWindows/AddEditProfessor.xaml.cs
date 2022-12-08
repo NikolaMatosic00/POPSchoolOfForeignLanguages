@@ -28,7 +28,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
             _professor = professor;
 
             string initialAddressesCB = "";
-            string initialProfessorsCB = "";
+            string initialSchoolsCB = "";
             List<string> addressesCB = new();
             foreach (Address one in Util.Instance.Addresses)
             {
@@ -51,9 +51,9 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                 Console.WriteLine(one.ID + "-" + one.Name);
                 if (_professor != null)
                 {
-                    if (one.ID == _professor.User.Address.ID)
+                    if (one.ID == _professor.School.ID)
                     {
-                        initialProfessorsCB = one.ID + "-" + one.Name;
+                        initialSchoolsCB = one.ID + "-" + one.Name;
                     }
                 }
             }
@@ -72,7 +72,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                 TxtSurname.Text = _professor.User.Surname;
                 TxtJMBG.Text = _professor.User.JMBG;
                 TxtSex.Text = _professor.User.Sex.ToString();
-                CmbSchool.Text = initialProfessorsCB;
+                CmbSchool.Text = initialSchoolsCB;
                 CmbAddress.Text = initialAddressesCB;
                 TxtEmail.Text = _professor.User.Email;
                 TxtPassword.Text = _professor.User.Password;
