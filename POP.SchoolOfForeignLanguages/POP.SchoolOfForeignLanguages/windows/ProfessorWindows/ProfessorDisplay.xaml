@@ -9,8 +9,8 @@
     <Grid Margin="-1,0,15,13">
         <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
             <MenuItem Name="MIProfessors" Header="Professors">
-                <MenuItem Name="MIAddProfessor" Header="Add Professor"/>
-                <MenuItem Name="MIEditStudent" Header="Edit Professor"/>
+                <MenuItem Name="MIAddProfessor" Header="Add Professor" Click="MIAddProfessor_Click"/>
+                <MenuItem Name="MIEditProfessor" Header="Edit Professor" Click="MIEditProfessor_Click"/>
                 <MenuItem Name="MIRemoveProfessor" Header="Remove Professor" Click="MIRemoveProfessor_Click"/>
 
             </MenuItem>

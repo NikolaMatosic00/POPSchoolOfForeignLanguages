@@ -47,7 +47,6 @@ namespace POP.SchoolOfForeignLanguages.services
                     Lessons = new List<Lesson>(),
                     Active = bool.Parse(lajs[4])
                 });
-
             }
             file.Close();
         }

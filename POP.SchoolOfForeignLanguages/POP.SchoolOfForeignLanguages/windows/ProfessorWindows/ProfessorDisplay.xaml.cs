@@ -1,9 +1,11 @@
 ﻿using POP.SchoolOfForeignLanguages.models;
+using POP.SchoolOfForeignLanguages.windows.StudentWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +22,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
     public partial class ProfessorDisplay : Window
     {
         ICollectionView view;
+        Professor _selected;
         public ProfessorDisplay()
         {
             InitializeComponent();
@@ -60,10 +63,33 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                 e.Column.Visibility = Visibility.Collapsed;
         }
 
+        private void MIAddProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditProfessor addWindow = new AddEditProfessor(null);
+            addWindow.Show();
+        }
+
+
+        private void MIEditProfessor_Click(object sender, RoutedEventArgs e)
+        {
+            object item = DGProfessors.SelectedItem;
+            PropertyInfo[] props = DGProfessors.SelectedItem.GetType().GetProperties();
+            string studentID = props[0].GetValue(item, null).ToString();
+            _selected = Util.Instance.Professors.FirstOrDefault(c => c.ID == int.Parse(studentID));
+
+            AddEditProfessor editWindow = new(_selected);
+            editWindow.Show();
+
+        }
+
         private void MIRemoveProfessor_Click(object sender, RoutedEventArgs e)
         {
-            object selected = view.CurrentItem;
-            Util.Instance.RemoveEntity(selected);
+            object item = DGProfessors.SelectedItem;
+            PropertyInfo[] props = DGProfessors.SelectedItem.GetType().GetProperties();
+            string studentID = props[0].GetValue(item, null).ToString();
+            _selected = Util.Instance.Professors.FirstOrDefault(c => c.ID == int.Parse(studentID));
+
+            Util.Instance.RemoveEntity(_selected);
 
             UpdateView();
             view.Refresh();

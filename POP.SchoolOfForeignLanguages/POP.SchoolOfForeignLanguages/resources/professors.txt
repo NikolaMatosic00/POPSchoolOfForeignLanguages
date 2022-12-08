@@ -1,1 +1,2 @@
-1;1;1;Serbian,Russian;True
+1;1;1;Serbian,Russian,Bulgarian;True
+5;5;4;Serbian,Mongolian,Amora;True
