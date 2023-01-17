@@ -1,4 +1,4 @@
 1;Jozefa Marčoka;3;Novi Sad;Serbia;True
-2;Jozefa Nearok;12;Novi Sad;Serbia;True
-3;Jozefa Marčoka;4;Novi Sad;Serbia;True
-5;Gogoljeva;32;Novi Sad;Serbia;True
+2;Jurija Gagarina;32;Beograd;Serbia;True
+3;Narodnog fronta;73;Novi Sad;Serbia;True
+4;Gogoljeva;32;Novi Sad;Serbia;True

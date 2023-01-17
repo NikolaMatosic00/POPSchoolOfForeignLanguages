@@ -48,7 +48,7 @@ namespace POP.SchoolOfForeignLanguages.models
         public ObservableCollection<Student> Students { get; set; }
         public ObservableCollection<Professor> Professors { get; set; }
         public ObservableCollection<Lesson> Lessons { get; set; }
-
+        public RegisteredUser LoggedInUser { get; set; }
 
         public void Initialize()
         {
@@ -103,6 +103,24 @@ namespace POP.SchoolOfForeignLanguages.models
                 found.Active = false;
             }
             SaveEntities();
+        }
+
+        public RegisteredUser Login(string jmbg, string password)
+        {
+            foreach (RegisteredUser user in Users)
+            {
+                if (user.JMBG.Equals(jmbg) && user.Password.Equals(password))
+                {
+                    return user;
+                }
+            }
+
+            return null;
+        }
+
+        public Student findStudentByUserID(int userID)
+        {
+            return Students.FirstOrDefault(c => c.User.ID == userID);
         }
 
     }

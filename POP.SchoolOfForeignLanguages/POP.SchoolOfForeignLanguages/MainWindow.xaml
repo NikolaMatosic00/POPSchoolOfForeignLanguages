@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Addresses" HorizontalAlignment="Left" Height="40" Margin="50,50,0,0" VerticalAlignment="Top" Width="156" Click="AddressesButton_Click"/>
-        <Button Content="Schools" HorizontalAlignment="Left" Height="43" Margin="50,117,0,0" VerticalAlignment="Top" Width="156" Click="SchoolsButton_Click"/>
-        <Button Content="Students" HorizontalAlignment="Left" Height="44" Margin="50,190,0,0" VerticalAlignment="Top" Width="156" Click="StudentsButton_Click"/>
-        <Button Content="Professors" HorizontalAlignment="Left" Height="40" Margin="353,50,0,0" VerticalAlignment="Top" Width="156" Click="ProfessorsButton_Click"/>
-        <Button Content="Lessons" HorizontalAlignment="Left" Height="40" Margin="353,120,0,0" VerticalAlignment="Top" Width="156" Click="LessonsButton_Click"/>
+        <Button Content="Schools" HorizontalAlignment="Left" Height="86" Margin="72,121,0,0" VerticalAlignment="Top" Width="190" Click="SchoolsButton_Click"/>
+        <Button Content="Professors" HorizontalAlignment="Left" Height="86" Margin="537,121,0,0" VerticalAlignment="Top" Width="187" Click="ProfessorsButton_Click"/>
+        <Button Content="Register" HorizontalAlignment="Center" Height="40" Margin="0,238,0,0" VerticalAlignment="Top" Width="156" Click="RegistrationButton_Click"/>
+        <Button Content="Login" HorizontalAlignment="Center" Height="44" Margin="0,300,0,0" VerticalAlignment="Top" Width="156" Click="LoginButton_Click"/>
 
     </Grid>
 </Window>

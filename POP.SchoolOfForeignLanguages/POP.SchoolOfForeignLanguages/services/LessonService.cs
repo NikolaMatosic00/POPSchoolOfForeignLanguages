@@ -35,7 +35,15 @@ namespace POP.SchoolOfForeignLanguages.services
                 //1;1;03-10-2022;18:43;1:45;FREE;1;True
                 string[] lajs = line.Split(';');
                 Professor professor = Util.Instance.Professors.FirstOrDefault(c => c.ID == int.Parse(lajs[1]));
-                Student student = Util.Instance.Students.FirstOrDefault(c => c.ID == int.Parse(lajs[6]));
+                Student student;
+                if (int.Parse(lajs[6]) != 0)
+                {
+                    student = Util.Instance.Students.FirstOrDefault(c => c.ID == int.Parse(lajs[6]));
+                }
+                else
+                {
+                    student = null;
+                }
 
                 Util.Instance.Lessons.Add(new Lesson
                 {

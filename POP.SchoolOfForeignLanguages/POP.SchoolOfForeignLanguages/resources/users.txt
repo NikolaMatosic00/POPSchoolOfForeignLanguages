@@ -1,4 +1,4 @@
-1;Nikola;Matošić;0510000800048;MALE;1;matisicliman@gmail.com;Nikolica.12;STUDENT;True
-2;Stefan;Kalajdžić;1234567898765;MALE;2;kalajbrcko@gmail.com;Kalajica.12;STUDENT;True
-4;asdfads;dsfdakfdsakjkl;1234567890987;MALE;5;maler@gmail.com;sdjafsdkjdksf;STUDENT;True
-5;Miroljub;Mikanovic;0987654321234;MALE;5;male@male.com;male123;STUDENT;True
+1;Nikola;Matošić;0510000800048;MALE;1;matisicliman@gmail.com;Nikolica.12;ADMINISTRATOR;True
+2;Stefan;Kalajdžić;1234567898765;MALE;2;kalajbrcko@gmail.com;Kalajica.12;PROFESSOR;True
+3;asdfads;dsfdakfdsakjkl;1234567890987;MALE;3;maler@gmail.com;sdjafsdkjdksf;STUDENT;True
+4;Miroljub;Mikanovic;0987654321234;MALE;4;male@male.com;male123;STUDENT;True

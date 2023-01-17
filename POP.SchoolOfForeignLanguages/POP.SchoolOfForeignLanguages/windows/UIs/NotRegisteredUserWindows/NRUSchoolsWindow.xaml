@@ -1,0 +1,26 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows.NRUSchoolsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows"
+        mc:Ignorable="d"
+        Title="NRUSchoolsWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid CanUserAddRows="False" Name="DGSchools" HorizontalAlignment="Left" 
+                  Height="255" Margin="10,156,0,0" VerticalAlignment="Top" Width="769"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DGSchools_AutoGeneratingColumn"
+                  IsReadOnly="True"
+                  />
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="City" HorizontalAlignment="Left" Height="24" Margin="80,41,0,0" VerticalAlignment="Top" Width="63"/>
+        <ComboBox Name="CmbCity"  HorizontalAlignment="Left" Height="39" Margin="35,70,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="CmbCity_SelectionChanged"/>
+        <Label Content="Language" HorizontalAlignment="Left" Height="28" Margin="246,44,0,0" VerticalAlignment="Top" Width="62"/>
+        <ComboBox Name="CmbLanguage"  HorizontalAlignment="Left" Height="39" Margin="213,70,0,0" VerticalAlignment="Top" Width="128" SelectionChanged="CmbLanguage_SelectionChanged"/>
+        <Label Content="School name" HorizontalAlignment="Left" Height="24" Margin="433,47,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox Name="txtSchoolName" HorizontalAlignment="Left" Margin="394,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="39" TextChanged="txtSchoolName_TextChanged"/>
+        <Label Content="School address" HorizontalAlignment="Left" Height="24" Margin="623,46,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="txtSchoolAddress" HorizontalAlignment="Left" Margin="589,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="39" TextChanged="txtSchoolAddress_TextChanged"/>
+    </Grid>
+</Window>

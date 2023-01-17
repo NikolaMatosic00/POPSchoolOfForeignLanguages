@@ -4,6 +4,8 @@ using POP.SchoolOfForeignLanguages.windows.LessonWindows;
 using POP.SchoolOfForeignLanguages.windows.ProfessorWindows;
 using POP.SchoolOfForeignLanguages.windows.SchoolWindows;
 using POP.SchoolOfForeignLanguages.windows.StudentWindows;
+using POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows;
+using POP.SchoolOfForeignLanguages.windows.UtilWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,32 +34,27 @@ namespace POP.SchoolOfForeignLanguages
             Util.Instance.Initialize();
         }
 
-        private void AddressesButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddressDisplay addressesDisplayWindow = new();
-            addressesDisplayWindow.Show();
-        }
-
         private void SchoolsButton_Click(Object sender, RoutedEventArgs e)
         {
-            SchoolDisplay schoolsDisplayWindow = new();
-            schoolsDisplayWindow.Show();
-        }
-        private void StudentsButton_Click(Object sender, RoutedEventArgs e)
-        {
-            StudentDisplay studentsDisplayWindow = new();
-            studentsDisplayWindow.Show();
+            NRUSchoolsWindow nruSchoolsDisplayWindow = new();
+            nruSchoolsDisplayWindow.Show();
         }
         private void ProfessorsButton_Click(Object sender, RoutedEventArgs e)
         {
-            ProfessorDisplay professorsDisplayWindow = new();
-            professorsDisplayWindow.Show();
+            NRUProfessorsWindow nruProfessorsDisplayWindow = new();
+            nruProfessorsDisplayWindow.Show();
         }
-        private void LessonsButton_Click(Object sender, RoutedEventArgs e)
+        private void RegistrationButton_Click(Object sender, RoutedEventArgs e)
         {
-            LessonDisplay lessonDisplayWindow = new();
-            lessonDisplayWindow.Show();
+            AddEditStudent studentsDisplayWindow = new(null);
+            studentsDisplayWindow.Show();
         }
-        
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Login loginWindow = new();
+            loginWindow.Show();
+        }
+
     }
 }

@@ -1,9 +1,8 @@
-﻿using POP.SchoolOfForeignLanguages.models;
-using POP.SchoolOfForeignLanguages.windows.ProfessorWindows;
+﻿using POP.SchoolOfForeignLanguages.models.enums;
+using POP.SchoolOfForeignLanguages.models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -16,25 +15,32 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
-namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
+namespace POP.SchoolOfForeignLanguages.windows.UIs.StudentUIWindows
 {
-    public partial class LessonDisplay : Window
+    /// <summary>
+    /// Interaction logic for SMyBookings.xaml
+    /// </summary>
+    public partial class SMyBookings : Window
     {
         ICollectionView view;
         Lesson _selected;
-        public LessonDisplay()
+
+        public SMyBookings()
         {
             InitializeComponent();
             UpdateView();
         }
+
         private void UpdateView()
         {
             ObservableCollection<Lesson> activeEntities = new ObservableCollection<Lesson>();
             foreach (Lesson lesson in Util.Instance.Lessons)
             {
-                if (lesson.Active == true)
+                if (lesson.Active == true && lesson.Student != null)
                 {
+                    if (lesson.Student.ID == Util.Instance.findStudentByUserID(Util.Instance.LoggedInUser.ID).ID)
                     activeEntities.Add(lesson);
                 }
             }
@@ -45,12 +51,8 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
                 date = x.Date,
                 starttime = x.StartTime,
                 duration = x.Duration,
-                status = x.Status,
-                student = x.Student?.User.Email ?? "it's a free class"
+                status = x.Status
             }).ToList();
-
-
-
             DGLessons.ItemsSource = itemSource;
             view = CollectionViewSource.GetDefaultView(activeEntities);
             DGLessons.IsSynchronizedWithCurrentItem = true;
@@ -59,38 +61,24 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
 
         private void DGLessons_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
         }
 
 
-        private void MIAddLesson_Click(object sender, RoutedEventArgs e)
-        {
-            AddEditLesson addWindow = new AddEditLesson(null);
-            addWindow.Show();
-        }
-
-        private void MIEditLesson_Click(object sender, RoutedEventArgs e)
+        private void MIUnbookLesson_Click(object sender, RoutedEventArgs e)
         {
             object item = DGLessons.SelectedItem;
             PropertyInfo[] props = DGLessons.SelectedItem.GetType().GetProperties();
             string lessonID = props[0].GetValue(item, null).ToString();
             _selected = Util.Instance.Lessons.FirstOrDefault(c => c.ID == int.Parse(lessonID));
 
-            AddEditLesson editWindow = new(_selected);
-            editWindow.Show();
-        }
-        private void MIRemoveLesson_Click(object sender, RoutedEventArgs e)
-        {
-            object item = DGLessons.SelectedItem;
-            PropertyInfo[] props = DGLessons.SelectedItem.GetType().GetProperties();
-            string lessonID = props[0].GetValue(item, null).ToString();
-            _selected = Util.Instance.Lessons.FirstOrDefault(c => c.ID == int.Parse(lessonID));
+            _selected.Status = ELessonStatus.FREE;
+            _selected.Student = null;
 
-            Util.Instance.RemoveEntity(_selected);
-
-            UpdateView();
-            view.Refresh();
-
+            Util.Instance.SaveEntities();
+            var currentWindow = Window.GetWindow(this);
+            currentWindow.Close();
+            var newWindow = new SMyBookings();
+            newWindow.Show();
         }
     }
 }

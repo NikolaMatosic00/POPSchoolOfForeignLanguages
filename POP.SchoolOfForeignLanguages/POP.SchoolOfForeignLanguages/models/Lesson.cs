@@ -29,7 +29,14 @@ namespace POP.SchoolOfForeignLanguages.models
 
         public string FormatTxtFileLine()
         {
-            return ID.ToString() + ";" + Professor.ID.ToString() + ";" + Date + ";" + StartTime + ";" + Duration + ";" + Status + ";" + Student.ID.ToString() + ";" + Active.ToString();
+            if (Student != null)
+            {
+                return ID.ToString() + ";" + Professor.ID.ToString() + ";" + Date + ";" + StartTime + ";" + Duration + ";" + Status + ";" + Student.ID.ToString() + ";" + Active.ToString();
+            }
+            else
+            {
+                return ID.ToString() + ";" + Professor.ID.ToString() + ";" + Date + ";" + StartTime + ";" + Duration + ";" + Status + ";" + 0 + ";" + Active.ToString();
+            }
         }
     }
 }

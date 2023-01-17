@@ -25,6 +25,7 @@
 
         <Label Grid.Column="0" Grid.Row="0" Name="LblName" Content="Name:"/>
         <TextBox Grid.Column="1" Grid.Row="0" Name="TxtName"/>
+        
 
         <Label Grid.Column="0" Grid.Row="1" Name="LblSurname" Content="Surname:"/>
         <TextBox Grid.Column="1" Grid.Row="1" Name="TxtSurname"/>
@@ -33,7 +34,7 @@
         <TextBox Grid.Column="1" Grid.Row="2" Name="TxtJMBG"/>
 
         <Label Grid.Column="0" Grid.Row="3" Name="LblSex" Content="Sex:"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtSex"/>
+        <ComboBox Name="CmbSex"  Grid.Column="1" Grid.Row="3" />
 
         <Label Grid.Column="0" Grid.Row="4" Name="LblAddress" Content="Address:" />
         <ComboBox Name="CmbAddress"  Grid.Column="1" Grid.Row="4" />
@@ -42,7 +43,7 @@
         <TextBox Grid.Column="1" Grid.Row="5" Name="TxtEmail"/>
 
         <Label Grid.Column="0" Grid.Row="6" Name="LblPassword" Content="Password:"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Name="TxtPassword"/>
+        <PasswordBox Grid.Column="1" Grid.Row="6" Name="TxtPassword" />
 
 
 

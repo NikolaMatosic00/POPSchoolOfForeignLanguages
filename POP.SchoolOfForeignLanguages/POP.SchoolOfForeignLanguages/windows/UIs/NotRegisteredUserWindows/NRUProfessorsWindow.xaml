@@ -1,0 +1,20 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows.NRUProfessorsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows"
+        mc:Ignorable="d"
+        Title="NRUProfessorsWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid CanUserAddRows="False" Name="DGProfessors" HorizontalAlignment="Center" 
+                  Height="283" Margin="0,128,0,0" VerticalAlignment="Top" Width="780"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DGProfessors_AutoGeneratingColumn"
+                  IsReadOnly="True"
+                  />
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="School" HorizontalAlignment="Left" Height="26" Margin="388,24,0,0" VerticalAlignment="Top" Width="46"/>
+        <ComboBox Name="CmbSchool" HorizontalAlignment="Left" Height="47" Margin="312,55,0,0" VerticalAlignment="Top" Width="198" SelectionChanged="CmbSchool_SelectionChanged"/>
+    </Grid>
+</Window>

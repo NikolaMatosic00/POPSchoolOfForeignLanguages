@@ -41,7 +41,7 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                 }
             }
 
-
+            CmbSex.ItemsSource = new[] { "MALE", "FEMALE" };
             CmbAddress.ItemsSource = addressesCB;
 
             if (_student != null)
@@ -51,10 +51,10 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                 TxtName.Text = _student.User.Name;
                 TxtSurname.Text = _student.User.Surname;
                 TxtJMBG.Text = _student.User.JMBG;
-                TxtSex.Text = _student.User.Sex.ToString();
+                CmbSex.Text = _student.User.Sex.ToString();
                 CmbAddress.Text = initialCB;
                 TxtEmail.Text = _student.User.Email;
-                TxtPassword.Text = _student.User.Password;
+                TxtPassword.Password = _student.User.Password;
             }
             else
                 this.Title = "Add Student";
@@ -77,10 +77,10 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                     Name = TxtName.Text,
                     Surname = TxtSurname.Text,
                     JMBG = TxtJMBG.Text,
-                    Sex = (ESex)Enum.Parse(typeof(ESex), TxtSex.Text),
+                    Sex = (ESex)Enum.Parse(typeof(ESex), CmbSex.Text),
                     Address = addressOfStudent,
                     Email = TxtEmail.Text,
-                    Password = TxtPassword.Text,
+                    Password = TxtPassword.Password.ToString(),
                     UserType = EUserType.STUDENT,
                     Active = true
                 };
@@ -101,7 +101,7 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                 oldStudent.User.Surname = TxtSurname.Text;
                 oldStudent.User.JMBG = TxtJMBG.Text;
                 oldStudent.User.Email = TxtEmail.Text;
-                oldStudent.User.Password = TxtPassword.Text;
+                oldStudent.User.Password = TxtPassword.Password.ToString();
                 oldStudent.User.Address = Util.Instance.Addresses.FirstOrDefault(c => c.ID == int.Parse(CmbAddress.SelectedItem.ToString().Split("-")[0]));
             }
 

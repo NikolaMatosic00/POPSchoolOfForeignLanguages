@@ -47,7 +47,6 @@ namespace POP.SchoolOfForeignLanguages.services
                     UserType = (EUserType)Enum.Parse(typeof(EUserType), lajs[8]),
                     Active = bool.Parse(lajs[9])
                 });
-                Console.WriteLine("USER---" + line);
             }
             file.Close();
         }

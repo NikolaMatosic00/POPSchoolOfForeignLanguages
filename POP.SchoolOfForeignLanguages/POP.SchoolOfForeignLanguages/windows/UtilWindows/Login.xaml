@@ -1,0 +1,19 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.UtilWindows.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.UtilWindows"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Label Content="Login" HorizontalAlignment="Center" Height="50" Margin="0,39,0,0" VerticalAlignment="Top" Width="144" FontSize="24" Background="Gray" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="jmbg" HorizontalAlignment="Left" Height="32" Margin="132,166,0,0" VerticalAlignment="Top" Width="128"/>
+        <TextBox HorizontalAlignment="Left" Height="47" Margin="296,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" TextAlignment="Center" Name="TxtJMBG"/>
+        <Label Content="password" HorizontalAlignment="Left" Height="32" Margin="132,236,0,0" VerticalAlignment="Top" Width="128"/>
+        <PasswordBox HorizontalAlignment="Left" Height="47" Margin="296,229,0,0" VerticalAlignment="Top" Width="194" Name="TxtPassword" HorizontalContentAlignment="Center"/>
+
+        <Button Content="Ok" HorizontalAlignment="Left" Height="62" Margin="244,337,0,0" VerticalAlignment="Top" Width="126" Click="BtnOk_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Height="62" Margin="431,337,0,0" VerticalAlignment="Top" Width="126" Click="BtnCancel_Click"/>
+    </Grid>
+</Window>
