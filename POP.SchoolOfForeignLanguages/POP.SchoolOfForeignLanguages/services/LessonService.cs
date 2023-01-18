@@ -45,8 +45,9 @@ namespace POP.SchoolOfForeignLanguages.services
                     student = null;
                 }
 
-                Util.Instance.Lessons.Add(new Lesson
-                {
+                    
+                    Lesson lesson = new()
+                    {
                     ID = int.Parse(lajs[0]),
                     Professor = professor,
                     Date = lajs[2],
@@ -55,7 +56,11 @@ namespace POP.SchoolOfForeignLanguages.services
                     Status = (ELessonStatus)Enum.Parse(typeof(ELessonStatus), lajs[5]),
                     Student = student,
                     Active = bool.Parse(lajs[7])
-                });
+                };
+
+                Util.Instance.Lessons.Add(lesson);
+
+                professor.Lessons.Add(lesson);
 
             }
             file.Close();

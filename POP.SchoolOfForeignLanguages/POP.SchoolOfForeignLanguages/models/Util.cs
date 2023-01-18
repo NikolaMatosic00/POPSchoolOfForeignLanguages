@@ -123,6 +123,11 @@ namespace POP.SchoolOfForeignLanguages.models
             return Students.FirstOrDefault(c => c.User.ID == userID);
         }
 
+        public Professor findProfessorByUserID(int userID)
+        {
+            return Professors.FirstOrDefault(p => p.User.ID == userID);
+        }
+
     }
 
 }

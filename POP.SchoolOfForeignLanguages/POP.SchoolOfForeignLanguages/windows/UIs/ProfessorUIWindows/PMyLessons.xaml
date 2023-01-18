@@ -1,0 +1,27 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.UIs.ProfessorUIWindows.PMyLessons"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.UIs.ProfessorUIWindows"
+        mc:Ignorable="d"
+        Title="PMyLessons" Height="450" Width="800">
+    <Grid>
+        <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
+            <MenuItem Name="MILessons" Header="Options">
+                <MenuItem Name="MIRemoveLesson" Header="Delete selected lesson" Click="MIRemoveLesson_Click"/>
+                <MenuItem Name="MIViewStudent" Header="View student for selected lesson" Click="MIViewStudent_Click"/>
+                <MenuItem Name="MICreateLesson" Header="New lesson" Click="MICreateLesson_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="Date" HorizontalAlignment="Center" Height="30" Margin="0,38,0,0" VerticalAlignment="Top" Width="38"/>
+        <ComboBox Name="CBDate" HorizontalAlignment="Center" Height="33" Margin="0,68,0,0" VerticalAlignment="Top" Width="166" SelectionChanged="CBDate_SelectionChanged"/>
+        <DataGrid CanUserAddRows="False" Name="DGLessons" HorizontalAlignment="Center" 
+                  Height="279" Margin="0,132,0,0" VerticalAlignment="Top" Width="780"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DGLessons_AutoGeneratingColumn"
+                  IsReadOnly="True"
+                  />
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

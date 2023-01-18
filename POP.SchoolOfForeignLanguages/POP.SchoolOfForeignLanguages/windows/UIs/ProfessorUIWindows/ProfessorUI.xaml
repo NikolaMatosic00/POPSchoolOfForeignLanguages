@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="ProfessorUI" Height="450" Width="800">
     <Grid>
-        <Button Content="My Lessons" HorizontalAlignment="Center" Height="66" Margin="0,167,0,0" VerticalAlignment="Top" Width="176"/>
+        <Button Content="My Lessons" HorizontalAlignment="Center" Height="66" Margin="0,167,0,0" VerticalAlignment="Top" Width="176" Click="Button_Click"/>
     </Grid>
 </Window>

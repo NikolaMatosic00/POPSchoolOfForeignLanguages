@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POP.SchoolOfForeignLanguages.windows.UIs.ProfessorUIWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,12 @@ namespace POP.SchoolOfForeignLanguages.windows.UIs
         public ProfessorUI()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PMyLessons pMyLessons = new PMyLessons();
+            pMyLessons.Show();
         }
     }
 }
