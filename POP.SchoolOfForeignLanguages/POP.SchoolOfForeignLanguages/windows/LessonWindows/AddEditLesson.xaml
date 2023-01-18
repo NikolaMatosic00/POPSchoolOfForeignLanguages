@@ -19,7 +19,6 @@
             <RowDefinition MinHeight="10" />
             <RowDefinition MinHeight="10" />
             <RowDefinition MinHeight="10" />
-            <RowDefinition MinHeight="10" />
         </Grid.RowDefinitions>
 
 
@@ -27,7 +26,7 @@
         <ComboBox Name="CmbProfessor"  Grid.Column="1" Grid.Row="0" />
 
         <Label Grid.Column="0" Grid.Row="1" Name="LblDate" Content="Date:"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtDate"/>
+        <DatePicker Grid.Column="1" Grid.Row="1" Name="datePicker" />
 
         <Label Grid.Column="0" Grid.Row="2" Name="LblStartTime" Content="StartTime:"/>
         <TextBox Grid.Column="1" Grid.Row="2" Name="TxtStartTime"/>
@@ -36,11 +35,7 @@
         <TextBox Grid.Column="1" Grid.Row="3" Name="TxtDuration"/>
 
         <Label Grid.Column="0" Grid.Row="4" Name="LblStatus" Content="Status:"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Name="TxtStatus"/>
-
-        <Label Grid.Column="0" Grid.Row="5" Name="LblStudent" Content="Student:" />
-        <ComboBox Name="CmbStudent"  Grid.Column="1" Grid.Row="5" />
-        
+        <TextBox Grid.Column="1" Grid.Row="4" Name="TxtStatus" IsReadOnly="True"/>
 
         <Button Grid.Column="0" Grid.Row="9" Content="Cancel" Name="BtnCancel"  Click="BtnCancel_Click"/>
         <Button Grid.Column="1" Grid.Row="9" Content="Ok" Name="BtnOk" Click="BtnOk_Click"/>

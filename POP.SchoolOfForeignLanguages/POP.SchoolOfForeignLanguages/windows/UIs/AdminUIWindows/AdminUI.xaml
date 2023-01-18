@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="AdminUI" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Addresses" HorizontalAlignment="Left" Height="67" Margin="161,55,0,0" VerticalAlignment="Top" Width="156" Click="AddressesButton_Click"/>
+        <Button Content="Schools" HorizontalAlignment="Center" Height="67" Margin="0,55,0,0" VerticalAlignment="Top" Width="156" Click="SchoolsButton_Click"/>
+        <Button Content="Students" HorizontalAlignment="Left" Height="67" Margin="483,55,0,0" VerticalAlignment="Top" Width="156" Click="StudentsButton_Click"/>
+        <Button Content="Professors" HorizontalAlignment="Left" Height="67" Margin="161,145,0,0" VerticalAlignment="Top" Width="156" Click="ProfessorsButton_Click"/>
+        <Button Content="Lessons" HorizontalAlignment="Center" Height="67" Margin="0,150,0,0" VerticalAlignment="Top" Width="156" Click="LessonsButton_Click"/>
+        <Button Content="Users" HorizontalAlignment="Left" Height="67" Margin="483,150,0,0" VerticalAlignment="Top" Width="156" Click="UsersButton_Click"/>
     </Grid>
 </Window>

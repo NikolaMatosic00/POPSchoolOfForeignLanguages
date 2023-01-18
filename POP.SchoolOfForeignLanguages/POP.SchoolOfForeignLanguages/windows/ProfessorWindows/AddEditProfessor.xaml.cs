@@ -43,7 +43,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                 }
             }
             CmbAddress.ItemsSource = addressesCB;
-
+            CmbSex.ItemsSource = new[] { "MALE", "FEMALE" };
             List<string> schoolsCB = new();
             foreach (School one in Util.Instance.Schools)
             {
@@ -71,7 +71,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                 TxtName.Text = _professor.User.Name;
                 TxtSurname.Text = _professor.User.Surname;
                 TxtJMBG.Text = _professor.User.JMBG;
-                TxtSex.Text = _professor.User.Sex.ToString();
+                CmbSex.Text = _professor.User.Sex.ToString();
                 CmbSchool.Text = initialSchoolsCB;
                 CmbAddress.Text = initialAddressesCB;
                 TxtEmail.Text = _professor.User.Email;
@@ -104,7 +104,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
                     Name = TxtName.Text,
                     Surname = TxtSurname.Text,
                     JMBG = TxtJMBG.Text,
-                    Sex = (ESex)Enum.Parse(typeof(ESex), TxtSex.Text),
+                    Sex = (ESex)Enum.Parse(typeof(ESex), CmbSex.Text),
                     Address = addressOfProfessor,
                     Email = TxtEmail.Text,
                     Password = TxtPassword.Text,

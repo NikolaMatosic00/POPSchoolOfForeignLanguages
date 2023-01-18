@@ -1,0 +1,26 @@
+﻿<Window x:Class="POP.SchoolOfForeignLanguages.windows.UIs.AdminUIWindows.AAllUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP.SchoolOfForeignLanguages.windows.UIs.AdminUIWindows"
+        mc:Ignorable="d"
+        Title="AAllUsers" Height="450" Width="800">
+    <Grid>
+        <DataGrid CanUserAddRows="False" Name="DGAllUsers" HorizontalAlignment="Left" 
+                  Height="331" Margin="0,93,0,0" VerticalAlignment="Top" Width="780"
+                  AutoGenerateColumns="True"
+                  AutoGeneratingColumn="DGAllUsers_AutoGeneratingColumn"
+                  IsReadOnly="True"
+                  />
+        <ContentControl Content="ContentControl" HorizontalAlignment="Left" Margin="859,-44,-131,0" VerticalAlignment="Top" Width="100"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="24" Margin="68,10,0,0" VerticalAlignment="Top" Width="62"/>
+        <TextBox Name="txtName"  HorizontalAlignment="Left" Height="39" Margin="23,39,0,0" VerticalAlignment="Top" Width="128" TextChanged="txtName_TextChanged"/>
+        <Label Content="Surname" HorizontalAlignment="Left" Height="28" Margin="246,10,0,0" VerticalAlignment="Top" Width="62"/>
+        <TextBox Name="txtSurname"  HorizontalAlignment="Left" Height="39" Margin="213,39,0,0" VerticalAlignment="Top" Width="128" TextChanged="txtSurname_TextChanged"/>
+        <Label Content="Email" HorizontalAlignment="Left" Height="24" Margin="433,10,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox Name="txtEmail" HorizontalAlignment="Left" Margin="372,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="39" TextChanged="txtEmail_TextChanged"/>
+        <Label Content="User type" HorizontalAlignment="Left" Height="24" Margin="623,10,0,0" VerticalAlignment="Top" Width="92"/>
+        <ComboBox Name="cmbUserType" HorizontalAlignment="Left" Margin="573,39,0,0" VerticalAlignment="Top" Width="160" Height="39" SelectionChanged="cmbUserType_SelectionChanged"/>
+    </Grid>
+</Window>

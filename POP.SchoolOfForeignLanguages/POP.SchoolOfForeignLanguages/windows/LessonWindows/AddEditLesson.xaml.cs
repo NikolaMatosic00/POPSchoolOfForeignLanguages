@@ -27,21 +27,7 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
             _lesson = lesson;
 
             string initialProfessorsCB = "";
-            string initialStudentsCB = "";
-            List<string> studentsCB = new();
-            foreach (Student one in Util.Instance.Students)
-            {
-                studentsCB.Add(one.ID + "-" + one.User.Email);
-                if (_lesson != null)
-                {
-                    if (one.ID == _lesson.Student.ID)
-                    {
-                        initialStudentsCB = one.ID + "-" + one.User.Email;
-                    }
-                }
-            }
-            CmbStudent.ItemsSource = studentsCB;
-
+            
             List<string> professorsCB = new();
             foreach (Professor one in Util.Instance.Professors)
             {
@@ -60,19 +46,18 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
             {
 
 
-                this.Title = "Edit Professor";
+                this.Title = "Edit Lesson";
                 CmbProfessor.Text = initialProfessorsCB;
-                TxtDate.Text = _lesson.Date;
+                datePicker.Text = _lesson.Date;
                 TxtStartTime.Text = _lesson.StartTime;
                 TxtDuration.Text = _lesson.Duration;
                 TxtStatus.Text = _lesson.Status.ToString();
-                CmbStudent.Text = initialStudentsCB;
                
             }
             else
             {
-
-                this.Title = "Add Professor";
+                datePicker.DisplayDateStart = DateTime.Now;
+                this.Title = "Add Lesson";
             }
 
         }
@@ -88,17 +73,16 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
             if (_lesson == null)
             {
                 Professor professor = Util.Instance.Professors.FirstOrDefault(c => c.ID == int.Parse(CmbProfessor.SelectedItem.ToString().Split("-")[0]));
-                Student student = Util.Instance.Students.FirstOrDefault(c => c.ID == int.Parse(CmbStudent.SelectedItem.ToString().Split("-")[0]));
 
                 Util.Instance.Lessons.Add(new Lesson
                 {
                     ID = Util.Instance.Lessons.Count + 2,
                     Professor = professor,
-                    Date = TxtDate.Text,
+                    Date = datePicker.Text,
                     StartTime = TxtStartTime.Text,
                     Duration = TxtDuration.Text,
                     Status = (ELessonStatus)Enum.Parse(typeof(ELessonStatus), "FREE"),
-                    Student = student,
+                    Student = null,
                     Active = true
                 });
             }
@@ -106,11 +90,10 @@ namespace POP.SchoolOfForeignLanguages.windows.LessonWindows
             {
                 Lesson oldLesson= Util.Instance.Lessons.FirstOrDefault(c => c.ID == int.Parse(_lesson.ID.ToString()));
                 oldLesson.Professor = Util.Instance.Professors.FirstOrDefault(c => c.ID == int.Parse(CmbProfessor.SelectedItem.ToString().Split("-")[0]));
-                oldLesson.Date = TxtDate.Text;
+                oldLesson.Date = datePicker.Text;
                 oldLesson.StartTime= TxtStartTime.Text;
                 oldLesson.Duration= TxtDuration.Text;
                 oldLesson.Status = (ELessonStatus)Enum.Parse(typeof(ELessonStatus), TxtStatus.Text);
-                oldLesson.Student = Util.Instance.Students.FirstOrDefault(c => c.ID == int.Parse(CmbStudent.SelectedItem.ToString().Split("-")[0]));
             }
 
 

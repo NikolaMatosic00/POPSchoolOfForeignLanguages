@@ -163,7 +163,6 @@ namespace POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows
         {
             city = CmbCity.SelectedItem.ToString();
             criteriaChanged();
-            Console.WriteLine(city);
             UpdateView();
         }
 
@@ -171,7 +170,6 @@ namespace POP.SchoolOfForeignLanguages.windows.UIs.NotRegisteredUserWindows
         {
             language = CmbLanguage.SelectedItem.ToString();
             criteriaChanged();
-            Console.WriteLine(language);
             UpdateView();
         }
 

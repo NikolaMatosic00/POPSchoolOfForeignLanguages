@@ -47,7 +47,8 @@ namespace POP.SchoolOfForeignLanguages.windows.AddressWindows
 
         private void DGAddresses_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            if (e.PropertyName.Equals("Active"))
+                e.Column.Visibility = Visibility.Collapsed;
         }
 
 

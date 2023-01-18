@@ -35,7 +35,8 @@
         <TextBox Grid.Column="1" Grid.Row="2" Name="TxtJMBG"/>
 
         <Label Grid.Column="0" Grid.Row="3" Name="LblSex" Content="Sex:"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtSex"/>
+        <ComboBox Name="CmbSex"  Grid.Column="1" Grid.Row="3" />
+
 
         <Label Grid.Column="0" Grid.Row="4" Name="LblAddress" Content="Address:" />
         <ComboBox Name="CmbAddress"  Grid.Column="1" Grid.Row="4" />

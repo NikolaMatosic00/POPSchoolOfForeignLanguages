@@ -59,8 +59,7 @@ namespace POP.SchoolOfForeignLanguages.windows.ProfessorWindows
 
         private void DGProfessors_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName.Equals("Aktivan"))
-                e.Column.Visibility = Visibility.Collapsed;
+
         }
 
         private void MIAddProfessor_Click(object sender, RoutedEventArgs e)
