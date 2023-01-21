@@ -3,6 +3,7 @@ using POP.SchoolOfForeignLanguages.models.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,22 +28,7 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
             InitializeComponent();
             _student = student;
 
-            string initialCB = "";
-            List<string> addressesCB = new();
-            foreach (Address one in Util.Instance.Addresses)
-            {
-                addressesCB.Add(one.ID + "-" + one.Street + "/" + one.StreetNumber);
-                if (_student != null)
-                {
-                    if (one.ID == _student.User.Address.ID)
-                    {
-                        initialCB = one.ID + "-" + one.Street + "/" + one.StreetNumber;
-                    }
-                }
-            }
-
             CmbSex.ItemsSource = new[] { "MALE", "FEMALE" };
-            CmbAddress.ItemsSource = addressesCB;
 
             if (_student != null)
             {
@@ -52,7 +38,10 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                 TxtSurname.Text = _student.User.Surname;
                 TxtJMBG.Text = _student.User.JMBG;
                 CmbSex.Text = _student.User.Sex.ToString();
-                CmbAddress.Text = initialCB;
+                TxtStreet.Text = _student.User.Address.Street;
+                TxtStreetNumber.Text = _student.User.Address.StreetNumber.ToString();
+                TxtCity.Text = _student.User.Address.City;
+                TxtCountry.Text = _student.User.Address.Country;
                 TxtEmail.Text = _student.User.Email;
                 TxtPassword.Password = _student.User.Password;
             }
@@ -69,7 +58,17 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
 
             if (_student == null)
             {
-                Address addressOfStudent = Util.Instance.Addresses.FirstOrDefault(c => c.ID == int.Parse(CmbAddress.SelectedItem.ToString().Split("-")[0]));
+                Address addressOfStudent = new Address
+                {
+                    ID = Util.Instance.Addresses.Count() + 2,
+                    Street = TxtStreet.Text,
+                    StreetNumber = int.Parse(TxtStreetNumber.Text),
+                    City = TxtCity.Text,
+                    Country = TxtCountry.Text,
+                    Active = true
+                };
+
+                Util.Instance.Addresses.Add(addressOfStudent);
 
                 RegisteredUser user = new RegisteredUser
                 {
@@ -102,7 +101,10 @@ namespace POP.SchoolOfForeignLanguages.windows.StudentWindows
                 oldStudent.User.JMBG = TxtJMBG.Text;
                 oldStudent.User.Email = TxtEmail.Text;
                 oldStudent.User.Password = TxtPassword.Password.ToString();
-                oldStudent.User.Address = Util.Instance.Addresses.FirstOrDefault(c => c.ID == int.Parse(CmbAddress.SelectedItem.ToString().Split("-")[0]));
+                oldStudent.User.Address.Street = TxtStreet.Text;
+                oldStudent.User.Address.StreetNumber = int.Parse(TxtStreetNumber.Text);
+                oldStudent.User.Address.City = TxtCity.Text;
+                oldStudent.User.Address.Country = TxtCountry.Text;
             }
 
 

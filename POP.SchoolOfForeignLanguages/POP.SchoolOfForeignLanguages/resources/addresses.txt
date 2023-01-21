@@ -2,3 +2,4 @@
 2;Jurija Gagarina;32;Beograd;Serbia;True
 3;Narodnog fronta;73;Novi Sad;Serbia;True
 4;Gogoljeva;32;Novi Sad;Serbia;True
+6;Stritovaaa;322;Citić;Kančri;True
